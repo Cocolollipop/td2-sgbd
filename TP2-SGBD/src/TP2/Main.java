@@ -53,7 +53,10 @@ public class Main {
 		//tree.search(70);
 		//tree.search(79);
 		tree.insert(70);
-		//tree.insert(80);
+		tree.insert(80);
+		tree.insert(96);
+		tree.insert(98);
+		
 		
 	System.out.println("On a l'arbre suivant");
 		tree.showTree();
