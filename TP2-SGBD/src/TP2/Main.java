@@ -47,33 +47,49 @@ public class Main {
 		node1.addChild(node3);
 		node1.addChild(node4);
 		
-		//System.out.println(node4.getPere(tree));
-		
-		//tree.showTree();
-		//tree.search(70);
-		//tree.search(79);
-		System.out.println("On insere 70");
+		System.out.println("------------------On insere 70------------------");
 		tree.insert(70);
 		System.out.println("------------On a l'arbre suivant pour 70------------");
 		tree.showTree();
-		System.out.println("On insere 80");
+	
+		
+		System.out.println("------------------On insere 80------------------");
 		tree.insert(80);
 		System.out.println("------------On a l'arbre suivant pour 80------------");
 		tree.showTree();
-		System.out.println("On insere 96");
+		tree.search(80);
+		
+		System.out.println("------------------On insere 96------------------");
 		tree.insert(96);
 		System.out.println("------------On a l'arbre suivant pour 96------------");
 		tree.showTree();
+		tree.search(96);
 		
+		System.out.println("------------------On insere 84------------------");
 		tree.insert(84);
 		System.out.println("------------On a l'arbre suivant pour 84------------");
 		tree.showTree();
-		System.out.println("on cherche");tree.search(84);
-		System.out.println("ON INSERE 87");
+		tree.search(84);
+		
+		System.out.println("--------------ON INSERE 87------------------");
 		tree.insert(87);
 		System.out.println("------------On a l'arbre suivant pour 87------------");
 		tree.showTree();
+		tree.search(87);
+		
+		System.out.println("--------------ON INSERE 72------------------");
 		tree.insert(72);
+		System.out.println("------------On a l'arbre suivant pour 72------------");
+		tree.showTree();
+		tree.search(72);
+		System.out.println("test"); tree.search(70);
+		
+		System.out.println("--------------ON INSERE 120------------------");
+		tree.insert(120);
+		System.out.println("------------On a l'arbre suivant pour 120------------");
+		tree.showTree();
+		
+		
 		
 		//System.out.println("On insere 91");
 		//tree.insert(91);

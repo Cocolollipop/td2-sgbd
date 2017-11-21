@@ -63,23 +63,20 @@ public class BTree {
 
 			else if(this.getHeight()>1){ // veut dire qu'il a des children
 				for(int i=1;i<this.getTree().size();i++){
-					if(key>tree.get(i).getId().getX() && key<tree.get(i).getId().getY() ){ // On récupére l'intervalle du premier child
-						cptParcours ++; 
+					if(key>=tree.get(i).getId().getX() && key<=tree.get(i).getId().getY() ){ // On récupére l'intervalle du premier child
+						 
 						for(Integer ilist: tree.get(i).getKeys()){
 							// On parcours les clés du noeud 
 
-							if(ilist==key){
+							if(ilist.equals(key)){
 								System.out.println("trouvé");
 								return tree.get(i);	
 							}
 							//System.out.println("non trouvé doit etre" + tree.get(i).toString());
 							return tree.get(i); //quand il le trouve pas et qu'il doit etre dans cet intervalle
 						} 		   
-
 					}	
 				}
-
-
 			}
 		}
 		System.out.println("non trouvé");
@@ -147,7 +144,6 @@ public class BTree {
 			noeud.split(this,key);
 
 		}
-
 
 	}
 

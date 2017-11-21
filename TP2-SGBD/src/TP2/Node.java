@@ -97,12 +97,12 @@ public class Node {
 	public void split(BTree tree, int key){
 		//trouver la valeur mediane
 		int mediane = this.getKeys().get((BTree.m/2)-1);
-		if(this.getPere(tree).getKeys().size()<4) {
+		if(this.getPere(tree).getKeys().size()<=3) {
 			this.getPere(tree).addKey(mediane);
 			Collections.sort(this.getPere(tree).getKeys());
+		}else {
+			System.out.println("nouveau test");
 		}
-		else System.out.println("oups il faut resplit");
-
 
 		//creation du 1er noeud
 		ArrayList<Integer> list1 = new ArrayList<>();
