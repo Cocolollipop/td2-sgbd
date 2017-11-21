@@ -52,15 +52,32 @@ public class Main {
 		//tree.showTree();
 		//tree.search(70);
 		//tree.search(79);
+		System.out.println("On insere 70");
 		tree.insert(70);
-		tree.insert(80);
-		tree.insert(96);
-		tree.insert(98);
-		
-		
-	System.out.println("On a l'arbre suivant");
+		System.out.println("------------On a l'arbre suivant pour 70------------");
 		tree.showTree();
-	
+		System.out.println("On insere 80");
+		tree.insert(80);
+		System.out.println("------------On a l'arbre suivant pour 80------------");
+		tree.showTree();
+		System.out.println("On insere 96");
+		tree.insert(96);
+		System.out.println("------------On a l'arbre suivant pour 96------------");
+		tree.showTree();
+		
+		tree.insert(84);
+		System.out.println("------------On a l'arbre suivant pour 84------------");
+		tree.showTree();
+		System.out.println("on cherche");tree.search(84);
+		System.out.println("ON INSERE 87");
+		tree.insert(87);
+		System.out.println("------------On a l'arbre suivant pour 87------------");
+		tree.showTree();
+		tree.insert(72);
+		
+		//System.out.println("On insere 91");
+		//tree.insert(91);
+		
 		
 		
 

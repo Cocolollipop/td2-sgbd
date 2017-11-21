@@ -11,7 +11,7 @@ public class Node {
 	private Pair id; //les pères
 	//private final int MAX = 4; 
 
-	public Node(ArrayList<Integer> noeud, Pair id) {
+	public Node(List<Integer> noeud, Pair id) {
 		this.keys= new ArrayList<>();
 		this.keys=noeud;
 		this.id = id;
@@ -97,8 +97,9 @@ public class Node {
 	public void split(BTree tree, int key){
 		//trouver la valeur mediane
 		int mediane = this.getKeys().get((BTree.m/2)-1);
-		if(this.getPere(tree).getKeys().size()<4) {this.getPere(tree).addKey(mediane);
-		Collections.sort(this.getPere(tree).getKeys());
+		if(this.getPere(tree).getKeys().size()<4) {
+			this.getPere(tree).addKey(mediane);
+			Collections.sort(this.getPere(tree).getKeys());
 		}
 		else System.out.println("oups il faut resplit");
 
@@ -110,7 +111,10 @@ public class Node {
 			list1.add(this.getKeys().get(i));
 		}
 
-		if(key<this.getMediane()) list1.add(key);
+		if(key<this.getMediane()) {
+			list1.add(key);
+			Collections.sort(list1);
+		}
 		int rangNoeudAvantMediane = this.getPere(tree).getKeys().indexOf(mediane) -1;
 		Node noeud1 = new Node(list1, new Pair(this.getPere(tree).getKeys().get(rangNoeudAvantMediane),this.getMediane()));
 		System.out.println("liste1" + noeud1.toString());
@@ -121,16 +125,23 @@ public class Node {
 		for(int i=this.getKeys().indexOf(this.getMediane())+1; i<this.getKeys().size() ;i++){
 			list2.add(this.getKeys().get(i));
 		}
-		if(key>this.getMediane()) list2.add(key);
-		Node noeud2;
-		if(this.getPere(tree).getKeys().indexOf(mediane) +1 ==4) 
-		{ noeud2 = new Node(list2, new Pair(this.getMediane(),1000)); 
+		if(key>this.getMediane()) {
+			list2.add(key);
+			Collections.sort(list2);
 		}
-		//int rangNoeudApresMediane = this.getPere(tree).getKeys().indexOf(mediane) +1;
+		Node noeud2;
+		if(this.getPere(tree).getKeys().indexOf(mediane) +1 == 4) 
+		{ noeud2 = new Node(list2, new Pair(this.getMediane(),1000)); 
+		//cas particulier...
+
+		}
+
+
 		else{
+			//caas normal
 			int rangNoeudApresMediane = this.getPere(tree).getKeys().indexOf(mediane) +1;
-			 noeud2 = new Node(list2, new Pair(this.getMediane(),this.getPere(tree).getKeys().get(rangNoeudApresMediane))); 
-		System.out.println("list2" + noeud2.toString());
+			noeud2 = new Node(list2, new Pair(this.getMediane(),this.getPere(tree).getKeys().get(rangNoeudApresMediane))); 
+			System.out.println("list2" + noeud2.toString());
 		}
 		tree.getTree().add(tree.getTree().indexOf(this), noeud1);
 		tree.getTree().add(tree.getTree().indexOf(this)+1, noeud2);
