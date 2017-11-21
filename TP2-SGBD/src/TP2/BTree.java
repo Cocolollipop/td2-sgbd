@@ -68,7 +68,7 @@ public class BTree {
 						for(Integer ilist: tree.get(i).getKeys()){
 							// On parcours les clés du noeud 
 
-							if(ilist.equals(key)){
+							if(tree.get(i).getKeys().contains(key)){
 								System.out.println("trouvé");
 								return tree.get(i);	
 							}
